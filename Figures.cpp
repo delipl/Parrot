@@ -1,4 +1,5 @@
 #include "Header.h"
+#include "Board.h"
 
 Pawn::Pawn(int HP, int dmg, std::string &name) {
     HP = 5;
@@ -33,11 +34,10 @@ King::King(int HP, int dmg, std::string &name) {
 
 bool Pawn::canAttak(int targetX, int targetY)
 {
-    if(targetX == cordX + 1 & targetY == cordY + 1) return(1);
-    else if(targetX == cordX + 1 & targetY == cordY - 1) return(1);
-    else if(targetX == cordX - 1 & targetY == cordY + 1) return(1);
-    else if(targetX == cordX - 1 & targetY == cordY - 1) return(1);
-    else return(0);
+    return targetX == cordX + 1 & targetY == cordY + 1 ||
+           targetX == cordX + 1 & targetY == cordY - 1 ||
+           targetX == cordX - 1 & targetY == cordY + 1 ||
+           targetX == cordX - 1 & targetY == cordY - 1;
 
 }
 

@@ -1,35 +1,42 @@
 #include "Header.h"
 #include "Board.h"
 
-Pawn::Pawn(int HP, int dmg, std::string &name) {
+
+Pawn::Pawn(int HP, int dmg, std::string name)
+        :figureHP(HP), figureDMG(dmg), figureName(name) {
     HP = 5;
-    dmg= 2;
-    name= "Pionek";
+    const dmg = 2;
+    const name = "Pionek";
 }
-Horseman::Horseman(int HP, int dmg, std::string &name) {
+Horseman::Horseman(int HP, int dmg, std::string name)
+        :figureHP(HP), figureDMG(dmg), figureName(name) {
     HP = 3;
-    dmg= 5;
-    name= "Kon";
+    const dmg = 5;
+    const name = "Kon";
 }
-Bishop::Bishop(int HP, int dmg, std::string &name) {
+Bishop::Bishop(int HP, int dmg, std::string name)
+        :figureHP(HP), figureDMG(dmg), figureName(name) {
     HP = 7;
-    dmg= 3;
-    name= "Goniec";
+    const dmg = 3;
+    const name = "Goniec";
 }
-Tower::Tower(int HP, int dmg, std::string &name) {
+Tower::Tower(int HP, int dmg, std::string name)
+        :figureHP(HP), figureDMG(dmg), figureName(name) {
     HP = 8;
-    dmg= 2;
-    name= "Wieza";
+    const dmg = 2;
+    const name = "Wieza";
 }
-Queen::Queen(int HP, int dmg, std::string &name) {
+Queen::Queen(int HP, int dmg, std::string name)
+        :figureHP(HP), figureDMG(dmg), figureName(name) {
     HP = 12;
-    dmg= 3;
-    name= "Hetman";
+    const dmg = 3;
+    const name	="Hetman"
 }
-King::King(int HP, int dmg, std::string &name) {
+King::King(int HP, int dmg, std::string name)
+        :figureHP(HP), figureDMG(dmg), figureName(name) {
     HP = 20;
-    dmg= 2;
-    name= "Krol";
+    const dmg = 2;
+    const name = "Krol";
 }
 
 bool Pawn::canAttak(int targetX, int targetY)
@@ -70,8 +77,7 @@ bool Bishop::canAttak(int targetX, int targetY)
     return cordX == cordY && cordX <= 3;
 }
 
-bool Queen::canAttak(int targetX, int targetY)
-{
+bool Queen::canAttak(int targetX, int targetY) {
     cordX = wartoscBezwzgledna(cordX - targetX);
     cordY = wartoscBezwzgledna(cordY - targetY);
 

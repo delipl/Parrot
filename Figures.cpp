@@ -52,31 +52,19 @@ bool  Horseman::canAttak(int targetX, int targetY, Board& Board )
 
 bool Tower::canAttak(int targetX, int targetY)
 {
-    if(targetX == cordX && (cordY - targetY) <= 3){ //Y rośnie czyli ->
-        for(int i = cordY; i <= targetY; i++){
-            if(Board[cordX][i]->Name == "Obstacle") return(0);
-            else return(1);
-        }
-    }
-    else if(targetX == cordX  && (cordY - targetY) <= -3){ //Y rośnie czyli <-
-        for(int i = cordY; i >= targetY; i--){
-            if(Board[cordX][i]->Name == "Obstacle") return(0);
-            else return(1);
-        }
-    }
-    else if(targetY == cordY && cordX - targetX <= 3){ //Y rośnie czyli ^
-        for(int i = cordY; i <= targetY; i++){
-            if(Board[i][cordY]->Name == "Obstacle") return(0);
-            else return(1);
-        }
-    }
-    else if(targetY == cordY && cordX - targetX <= -3){ //Y rośnie czyli v
-        for(int i = cordY; i >= targetY; i--){
-            if(Board[i][cordY]->Name == "Obstacle") return(0);
-            else return(1);
-        }
-    }
-    else return(0);
+    if (targetX == cordX && (cordY - targetY) <= 3) //Y rośnie czyli ->
+        //for(int i = cordY; i <= targetY; i++)
+        return !(Board[cordX][/*i*/cordY]->Name == "Obstacle");
+    else if (targetX == cordX && (cordY - targetY) <= -3) //Y rośnie czyli <-
+        //for(int i = cordY; i >= targetY; i--)
+        return !(Board[cordX][/*i*/cordY]->Name == "Obstacle");
+    else if (targetY == cordY && cordX - targetX <= 3) //Y rośnie czyli ^
+        //for(int i = cordY; i <= targetY; i++)
+        return !(Board[/*i*/cordY][cordY]->Name == "Obstacle");
+    else if (targetY == cordY && cordX - targetX <= -3) //Y rośnie czyli v
+        //for(int i = cordY; i >= targetY; i--)
+        return !(Board[/*i*/cordY][cordY]->Name == "Obstacle");
+    else return false;
 }
 
 bool Bishop::canAttak(int targetX, int targetY)

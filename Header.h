@@ -7,6 +7,7 @@
 #include <array>
 #include <math.h>
 #include <fstream>
+#include "Board.h"
 
 const int boardX = 8;
 const int boardY = 8;

@@ -45,16 +45,14 @@ bool  Horseman::canAttak(int targetX, int targetY, Board& Board )
 {
 
     if(cordY == targetY + 1 && wartoscBezwzgledna(targetX - cordX) == 1){
-        for(int i = cordX - 1; i <= targetX; i++){
-            return !(Board[cordY][i]->Name == "Obstacle");
-        }
+        //for(int i = cordX - 1; i <= targetX; i++)
+            return !(Board[cordY][cordX-1]->Name == "Obstacle");
     }
 
 
     else if(cordY == targetY  - 1 && wartoscBezwzgledna(targetX - cordX) == 1){
-        for(int i = cordX - 1; i <= targetX; i++){
-            return !(Board[cordY][i]->Name == "Obstacle");
-        }
+        //for(int i = cordX - 1; i <= targetX; i++){
+            return !(Board[cordY][cordX-1]->Name == "Obstacle");
     }
 
     else return cordY == targetY && wartoscBezwzgledna(targetX - cordX) == 1;

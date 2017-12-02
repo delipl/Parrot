@@ -67,10 +67,7 @@ bool Bishop::canAttak(int targetX, int targetY)
     cordX = wartoscBezwzgledna(cordX - targetX);
     cordY = wartoscBezwzgledna(cordY - targetY);
 
-    if (cordX == cordY && cordX <=3)
-        return 1;
-    else
-        return 0;
+    return cordX == cordY && cordX <= 3;
 }
 
 bool Queen::canAttak(int targetX, int targetY)

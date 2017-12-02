@@ -85,8 +85,5 @@ bool King::canAttak(int targetX, int targetY)
     cordY = cordY - targetY;
     if (cordY < 0) cordY *= -1;
 
-    if (cordX <= 1 && cordY <= 1)
-        return 1;
-    else
-        return 0;
+    return cordX <= 1 && cordY <= 1;
 }

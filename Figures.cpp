@@ -43,19 +43,11 @@ bool Pawn::canAttak(int targetX, int targetY)
 
 bool  Horseman::canAttak(int targetX, int targetY, Board& Board )
 {
-
-    if(cordY == targetY + 1 && wartoscBezwzgledna(targetX - cordX) == 1){
-        //for(int i = cordX - 1; i <= targetX; i++)
-            return !(Board[cordY][cordX-1]->Name == "Obstacle");
-    }
-
-
-    else if(cordY == targetY  - 1 && wartoscBezwzgledna(targetX - cordX) == 1){
-        //for(int i = cordX - 1; i <= targetX; i++){
-            return !(Board[cordY][cordX-1]->Name == "Obstacle");
-    }
-
-    else return cordY == targetY && wartoscBezwzgledna(targetX - cordX) == 1;
+    return cordY == targetY + 1 && wartoscBezwzgledna(targetX - cordX) == 1
+           ? !(Board[cordY][cordX - 1]->Name == "Obstacle")
+           : cordY == targetY - 1 && wartoscBezwzgledna(targetX - cordX) == 1
+             ? !(Board[cordY][cordX - 1]->Name == "Obstacle")
+             : cordY == targetY && wartoscBezwzgledna(targetX - cordX) == 1;
 }
 
 bool Tower::canAttak(int targetX, int targetY)

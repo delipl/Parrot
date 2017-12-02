@@ -7,6 +7,7 @@
 #include <array>
 #include <math.h>
 #include <fstream>
+#include "Board.h"
 
 const int boardX = 8;
 const int boardY = 8;
@@ -52,35 +53,47 @@ class Pawn : public Figure  //pionek
 public:
 	Pawn(int HP, int dmg, std::string name);
     bool canAttak(int positionX, int positionY, int targetX, int targetY);
+
+	bool canAttak(int targetX, int targetY);
 };
 
 class Horseman : public Figure  //ko�
 {
 public:
     bool canAttak(int positionX, int positionY, int targetX, int targetY);
+
+	bool canAttak(int targetX, int targetY, Board &Board);
 };
 
 class Tower : public Figure //wie�a
 {
 public:
     bool canAttak(int positionX, int positionY, int targetX, int targetY);
+
+	bool canAttak(int targetX, int targetY);
 };
 
 class Bishop : public Figure  //goniec
 {
 public:
     bool canAttak(int positionX, int positionY, int targetX, int targetY);
+
+	bool canAttak(int targetX, int targetY);
 };
 
 class Queen : public Figure  //kr�lowa
 {
 public:
     bool canAttak(int positionX, int positionY, int targetX, int targetY);
+
+	bool canAttak(int targetX, int targetY);
 };
 
 class King : public Figure  //kr�l
 {
 public:
     bool canAttak(int positionX, int positionY, int targetX, int targetY);
+
+	bool canAttak(int targetX, int targetY);
 };
 
